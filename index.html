@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VK EDITS | Elite Video Editor & Visual Storyteller</title>
+  <meta name="description" content="Portfolio of VK Edits — High-retention video editing, cinematic color grading, motion graphics, and visual storytelling for top creators, commercial brands, and music artists.">
+  <meta name="keywords" content="video editor, VK edits, Premiere Pro, DaVinci Resolve, After Effects, color grading, visual storytelling, YouTube editor, reel editor">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2308080a'/><path d='M25 30 L45 70 L65 30 M55 50 L75 50' stroke='%23e5a93c' stroke-width='8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Custom Cinematic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-circle" id="cursorCircle">
+    <span class="cursor-text" id="cursorText">VIEW</span>
+  </div>
+
+  <!-- Noise Grain Overlay -->
+  <div class="film-grain"></div>
+
+  <!-- Sound Toggle / Ambient Audio Button -->
+  <button class="sound-toggle" id="soundToggle" aria-label="Toggle UI Audio Feedback" title="Toggle Sound FX">
+    <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+    <span class="sound-label">SFX OFF</span>
+  </button>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-monogram">VK</span>
+        <span class="brand-text">EDITS<span class="brand-dot">.</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Studio</a></li>
+          <li><a href="#about" class="nav-link">About VK</a></li>
+          <li><a href="#showreel" class="nav-link">Showreel</a></li>
+          <li><a href="#portfolio" class="nav-link">Projects</a></li>
+          <li><a href="#grade-lab" class="nav-link">Color Lab</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#workflow" class="nav-link">Pipeline</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Area -->
+      <div class="nav-actions">
+        <div class="live-rec-badge" title="Live status: Available for commissions">
+          <span class="rec-dot"></span>
+          <span class="rec-text">REC &bull; AVAILABLE</span>
+        </div>
+        <a href="#contact" class="btn btn-primary nav-cta">
+          <span>Start Project</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="mobile-nav-link">Studio</a></li>
+      <li><a href="#about" class="mobile-nav-link">About VK</a></li>
+      <li><a href="#showreel" class="mobile-nav-link">Showreel</a></li>
+      <li><a href="#portfolio" class="mobile-nav-link">Projects</a></li>
+      <li><a href="#grade-lab" class="mobile-nav-link">Color Lab</a></li>
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#workflow" class="mobile-nav-link">Pipeline</a></li>
+      <li><a href="#testimonials" class="mobile-nav-link">Reviews</a></li>
+      <li><a href="#contact" class="mobile-nav-link highlight">Let's Create</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-media">
+        <div class="hero-gradient-overlay"></div>
+        <video class="hero-bg-video" autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1920&q=80">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-look-of-a-man-in-neon-lights-42456-large.mp4" type="video/mp4">
+        </video>
+        <div class="scanline"></div>
+      </div>
+
+      <div class="container hero-content">
+        <!-- Production HUD Bar -->
+        <div class="hero-hud">
+          <div class="hud-item"><span class="hud-label">FPS</span><span class="hud-val">23.976 fps</span></div>
+          <div class="hud-item"><span class="hud-label">CODEC</span><span class="hud-val">ProRes 4444 XQ</span></div>
+          <div class="hud-item"><span class="hud-label">COLOR</span><span class="hud-val">ACEScc / Rec.709</span></div>
+          <div class="hud-item tc-item">
+            <span class="hud-label">TIMECODE</span>
+            <span class="hud-val tc-display" id="heroTimecode">01:42:19:14</span>
+          </div>
+        </div>
+
+        <div class="hero-centerpiece">
+          <div class="hero-badge">
+            <img src="vk-photo.jpg" alt="Vijay Kumar" class="hero-avatar">
+            <span>VIJAY KUMAR (VK) &bull; LEAD VISUAL STORYTELLER</span>
+          </div>
+
+          <h1 class="hero-title">
+            TRANSFORMING RAW FOOTAGE INTO
+            <span class="text-gradient">CINEMATIC GOLD.</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Specializing in dynamic pacing, retention-engineered YouTube cuts, hypnotic color science, and blockbuster soundscapes that capture millions of eyes and convert audiences.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#showreel" class="btn btn-glow open-showreel-btn">
+              <span class="btn-icon-wrap"><i class="fa-solid fa-play"></i></span>
+              <span>Watch 2026 Reel</span>
+            </a>
+            <a href="#portfolio" class="btn btn-secondary">
+              <span>View Selected Work</span>
+              <i class="fa-solid fa-layer-group"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Metric Counter Strip -->
+        <div class="hero-metrics-strip">
+          <div class="metric-card">
+            <div class="metric-num"><span class="counter" data-target="240">0</span>M+</div>
+            <div class="metric-tag">Global Organic Views</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-num"><span class="counter" data-target="650">0</span>+</div>
+            <div class="metric-tag">Commercial & Creator Edits</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-num"><span class="counter" data-target="88">0</span>%</div>
+            <div class="metric-tag">Avg. Audience Retention</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-num"><span class="counter" data-target="99">0</span>.4%</div>
+            <div class="metric-tag">Client Satisfaction Score</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-down-hint">
+        <span>SCROLL DOWN</span>
+        <div class="mouse-icon">
+          <div class="mouse-wheel"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT VK / LEAD EDITOR SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          
+          <!-- Photo Column -->
+          <div class="about-photo-wrapper">
+            <div class="cinematic-photo-card">
+              <div class="film-border-header">
+                <span class="film-code">VK-5219 &bull; 35MM VISION3</span>
+                <span class="film-iso">ISO 500T</span>
+              </div>
+              <div class="photo-img-box">
+                <img src="vk-photo.jpg" alt="Vijay Kumar - VK Edits" class="editor-main-photo">
+                <div class="photo-overlay-hud">
+                  <div class="photo-tag"><span class="rec-dot"></span> MASTER EDITOR</div>
+                  <div class="photo-spec">24.00 FPS &bull; ACES</div>
+                </div>
+              </div>
+              <div class="photo-card-footer">
+                <div class="editor-identity">
+                  <h3>Vijay Kumar</h3>
+                  <p>Lead Video Editor &amp; Colorist &bull; VK Edits</p>
+                </div>
+                <div class="editor-stat-badge">
+                  <span class="stat-yrs">5+</span>
+                  <span class="stat-lbl">Years Exp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Column -->
+          <div class="about-content">
+            <div class="section-tag"><i class="fa-solid fa-user-astronaut"></i> BEHIND THE TIMELINE</div>
+            <h2 class="section-title">THE ARCHITECT BEHIND <span class="text-gradient">THE CUTS.</span></h2>
+            
+            <p class="about-lead">
+              Hi, I’m <strong>Vijay Kumar</strong>, known as <strong>VK Edits</strong>. I don't just cut clips together — I sculpt visual rhythm, engineer audience retention, and build emotional momentum that turns casual scrollers into loyal followers.
+            </p>
+
+            <p class="about-desc">
+              With over half a decade in post-production and <strong>240M+ organic views</strong> generated across YouTube, commercials, and short-form social channels, my editing combines surgical pacing with Hollywood-grade ACES color science and multi-layered sound design.
+            </p>
+
+            <div class="about-highlights-grid">
+              <div class="about-highlight-card">
+                <div class="highlight-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div>
+                  <h4>Retention-First Editing</h4>
+                  <p>Hooks engineered to seize attention in 1.8s and prevent drop-off with micro-pacing.</p>
+                </div>
+              </div>
+              <div class="about-highlight-card">
+                <div class="highlight-icon"><i class="fa-solid fa-sliders"></i></div>
+                <div>
+                  <h4>Hollywood Color Science</h4>
+                  <p>ACEScc workflows preserving full dynamic range and rich Kodak 2383 film emulations.</p>
+                </div>
+              </div>
+              <div class="about-highlight-card">
+                <div class="highlight-icon"><i class="fa-solid fa-headphones"></i></div>
+                <div>
+                  <h4>Spatial Sound Engineering</h4>
+                  <p>100+ audio tracks per cut: custom foley, risers, sub-braams, and clear vocal mastering.</p>
+                </div>
+              </div>
+              <div class="about-highlight-card">
+                <div class="highlight-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div>
+                  <h4>Agile 48-72h Turnarounds</h4>
+                  <p>Rapid delivery schedules with lossless ProRes 4444 and optimized web masters.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-cta-row">
+              <a href="#contact" class="btn btn-primary">
+                <span>Book a Project with VK</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a href="#portfolio" class="btn btn-secondary">
+                <span>View Portfolio Archive</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWREEL SECTION -->
+    <section class="section showreel-section" id="showreel">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag"><i class="fa-solid fa-clapperboard"></i> 2026 HIGHLIGHTS</div>
+          <h2 class="section-title">THE SHOWREEL EXPERIENCE</h2>
+          <p class="section-desc">Watch VK's signature high-retention reel edit featuring dynamic pacing, frame reframing, and clean vocal sound design.</p>
+        </div>
+
+        <div class="showreel-container">
+          <div class="showreel-wrapper" id="showreelWrapper">
+            <!-- Simulated Video Player with Poster & Direct Video Stream -->
+            <video id="mainShowreelVideo" class="showreel-video" loop playsinline>
+              <source src="vk-reel-edit.mp4" type="video/mp4">
+            </video>
+            
+            <div class="showreel-overlay" id="showreelOverlay">
+              <div class="reel-badge"><i class="fa-solid fa-star"></i> VK EDITS &bull; ORIGINAL REEL WORK</div>
+              <button class="big-play-btn" id="showreelPlayBtn" aria-label="Play Showreel">
+                <div class="pulse-ring"></div>
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <div class="reel-hint">Click to play with sound</div>
+            </div>
+
+            <!-- Custom Player Controls HUD -->
+            <div class="player-controls-hud" id="playerControls">
+              <button class="hud-control-btn" id="playPauseToggle" aria-label="Play/Pause">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <div class="scrub-container" id="scrubContainer">
+                <div class="scrub-track">
+                  <div class="scrub-progress" id="scrubProgress"></div>
+                </div>
+              </div>
+              <div class="hud-time-display">
+                <span id="currentTime">00:00</span> / <span id="durationTime">02:14</span>
+              </div>
+              <button class="hud-control-btn" id="muteToggle" aria-label="Toggle Mute">
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+              <button class="hud-control-btn" id="fullscreenToggle" aria-label="Fullscreen">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Specs Badges -->
+        <div class="reel-specs-grid">
+          <div class="reel-spec-pill">
+            <i class="fa-solid fa-bolt"></i> <span>Dynamic Hook Pacing</span>
+          </div>
+          <div class="reel-spec-pill">
+            <i class="fa-solid fa-sliders"></i> <span>Multi-Layer Foley &amp; SFX</span>
+          </div>
+          <div class="reel-spec-pill">
+            <i class="fa-solid fa-palette"></i> <span>Custom Look-Up Tables (LUTs)</span>
+          </div>
+          <div class="reel-spec-pill">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> <span>3D Camera Tracking &amp; VFX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO / SELECTED WORKS -->
+    <section class="section portfolio-section" id="portfolio">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <div class="section-tag"><i class="fa-solid fa-folder-open"></i> SELECTED ARCHIVE</div>
+            <h2 class="section-title">FEATURED WORKS</h2>
+          </div>
+          
+          <!-- Category Filters -->
+          <div class="filter-bar" id="portfolioFilter">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="retention">YouTube / Retention</button>
+            <button class="filter-btn" data-filter="commercial">Commercial &amp; Brand</button>
+            <button class="filter-btn" data-filter="shortform">Reels &amp; Shorts</button>
+            <button class="filter-btn" data-filter="music">Music Videos</button>
+          </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          
+          <!-- Project 0: VK's Original Reel Edit (Uploaded Work) -->
+          <div class="project-card featured-reel-card" data-category="shortform" data-title="Creator Interview: High-Retention Reel Edit" data-views="2.4M Views" data-retention="94% Hook Retention" data-client="VK Original Reel" data-software="Premiere Pro &bull; After Effects &bull; Audio Enhancement" data-video="vk-reel-edit.mp4" data-desc="Signature viral interview reel edit crafted by VK. Engineered with rhythmic jump cuts, seamless B-roll pacing, dynamic kinetic captions, micro frame-zooms, noise reduction, and custom audio leveling to maximize engagement and watch time.">
+            <div class="project-media-wrapper">
+              <video class="project-preview-video active-stream" loop muted playsinline autoplay>
+                <source src="vk-reel-edit.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag gold-tag"><i class="fa-solid fa-star"></i> VK ORIGINAL WORK</span>
+                <span class="badge-stat"><i class="fa-solid fa-fire"></i> Viral Reel</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Full Reel Edit</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span class="featured-pill">Reel Edit</span>
+                <span>Pacing &amp; Hooks</span>
+                <span>Audio Mastering</span>
+              </div>
+              <h3 class="project-title">Creator Interview: High-Retention Reel</h3>
+              <p class="project-snippet">Authentic interview reel edit by VK showcasing seamless pacing, dynamic text styling, and crystal-clear audio balance.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-bolt"></i> +310% Engagement</span>
+                <span class="stat-client">VK Edits Portfolio</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 1 -->
+          <div class="project-card" data-category="retention" data-title="The $100,000 Cyber Heist Breakdown" data-views="3.8M Views" data-retention="74% at 15m" data-client="DocuTech Studios" data-software="Premiere Pro &bull; After Effects &bull; Sound Design" data-video="https://assets.mixkit.co/videos/preview/mixkit-computer-room-of-a-data-center-with-flashing-lights-42517-large.mp4" data-desc="A full documentary-style YouTube video detailing a cyber investigation. Engineered with fast-paced kinetic graphics, paper-tear overlays, 3D browser mockups, and dramatic 5.1 spatial sound design.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Cyber Heist Thumbnail" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-computer-room-of-a-data-center-with-flashing-lights-42517-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">YouTube Documentary</span>
+                <span class="badge-stat"><i class="fa-solid fa-eye"></i> 3.8M</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>DaVinci Resolve</span>
+                <span>After Effects</span>
+                <span>Spatial Audio</span>
+              </div>
+              <h3 class="project-title">The $100k Cyber Heist Documentary</h3>
+              <p class="project-snippet">Deep-dive documentary pacing that boosted client channel's avg retention from 38% to 74%.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-chart-line"></i> +260% Watch Time</span>
+                <span class="stat-client">DocuTech Studios</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card" data-category="commercial" data-title="KINETIC &bull; Midnight Electric Hypercar" data-views="1.2M Views" data-retention="Award Winner" data-client="Aero Motors Germany" data-software="DaVinci Studio &bull; Cinema 4D &bull; iZotope RX" data-video="https://assets.mixkit.co/videos/preview/mixkit-tail-lights-of-a-sports-car-at-night-42861-large.mp4" data-desc="High-fashion, sleek cinematic commercial for next-generation electric hypercar. Handled full pipeline: speed ramps, custom sound synthesis of electric hums, anamorphic lens flare matching, and filmic teal/tungsten grading.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Hypercar Commercial" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-tail-lights-of-a-sports-car-at-night-42861-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">Commercial</span>
+                <span class="badge-stat"><i class="fa-solid fa-trophy"></i> Best Ad 2025</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>ACES Pipeline</span>
+                <span>Speed Ramping</span>
+                <span>Sound Design</span>
+              </div>
+              <h3 class="project-title">KINETIC &bull; Midnight Electric Hypercar</h3>
+              <p class="project-snippet">Bold, aggressive commercial edit delivering high-end brand authority with synchronized soundscapes.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-award"></i> German Design Nominee</span>
+                <span class="stat-client">Aero Motors</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card" data-category="shortform" data-title="Viral Hook Blueprint: 90 Days to $1M" data-views="18.4M Views" data-retention="112% Completion" data-client="Alex R. Media" data-software="Premiere Pro &bull; After Effects &bull; CapCut Pro" data-video="https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-in-a-dark-room-43184-large.mp4" data-desc="Engineered for maximum Instagram Reels and TikTok viral retention. Utilized visual pattern interrupts every 1.5 seconds, animated kinetic typography, micro-sound effects, and frame zooms. Generated 64,000+ shares.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Short Form Viral Edit" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-in-a-dark-room-43184-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">Shorts &amp; Reels</span>
+                <span class="badge-stat"><i class="fa-solid fa-fire"></i> 18.4M Views</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>9:16 Vertical</span>
+                <span>Pattern Interrupt</span>
+                <span>Motion Type</span>
+              </div>
+              <h3 class="project-title">Viral Hook Blueprint: 90 Days to $1M</h3>
+              <p class="project-snippet">Masterclass in short-form micro-editing that kept retention above 112% across TikTok and IG.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-share-nodes"></i> 64k+ Shares</span>
+                <span class="stat-client">Alex R. Media</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" data-category="music" data-title="LUMINA &bull; 'Neon Reverie' Official Visualizer" data-views="4.1M Views" data-retention="89% Avg" data-client="Universal Music Sub-label" data-software="Premiere Pro &bull; DaVinci &bull; Boris FX Sapphire" data-video="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4" data-desc="Atmospheric synthwave and dream-pop music visualizer. Synchronized beat cuts, audio-reactive chromatic aberrations, film halation, and analog VHS tape degradation passes.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Music Video Visualizer" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-portrait-of-a-fashion-woman-with-silver-makeup-39875-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">Music Video</span>
+                <span class="badge-stat"><i class="fa-solid fa-music"></i> 4.1M Views</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>Audio Reactive</span>
+                <span>Film Halation</span>
+                <span>Glow FX</span>
+              </div>
+              <h3 class="project-title">LUMINA &bull; 'Neon Reverie'</h3>
+              <p class="project-snippet">Dreamy chromatic visuals, analog film grain treatment, and beat-matched rhythm transitions.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-headphones"></i> High Replay Rate</span>
+                <span class="stat-client">Universal Sub-label</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card" data-category="commercial" data-title="APEX WATCHES &bull; Precision &amp; Power" data-views="2.5M Views" data-retention="94% Conversion" data-client="Apex Luxury Timepieces" data-software="DaVinci Resolve &bull; Blender 3D &bull; After Effects" data-video="https://assets.mixkit.co/videos/preview/mixkit-macro-shot-of-the-gears-of-a-watch-41149-large.mp4" data-desc="Macro horology commercial focusing on watch movements, sapphire crystal refractions, and titanium textures. Handled 3D camera compositing and seamless match-cuts.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Apex Watch Commercial" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-macro-shot-of-the-gears-of-a-watch-41149-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">Luxury Brand</span>
+                <span class="badge-stat"><i class="fa-solid fa-gem"></i> Premium Tier</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>Macro Match-Cuts</span>
+                <span>Sound Synthesis</span>
+                <span>Color Science</span>
+              </div>
+              <h3 class="project-title">APEX WATCHES &bull; Precision &amp; Power</h3>
+              <p class="project-snippet">Surgical macro cuts paired with clockwork ticking soundscapes for high-end luxury luxury conversion.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-cart-shopping"></i> $420k Direct Sales</span>
+                <span class="stat-client">Apex Luxury</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card" data-category="retention" data-title="How AI is Changing Cinema Forever" data-views="5.6M Views" data-retention="68% Retention" data-client="FilmTheory Hub" data-software="Premiere Pro &bull; After Effects &bull; Audition" data-video="https://assets.mixkit.co/videos/preview/mixkit-futuristic-city-with-flying-cars-and-tall-buildings-42518-large.mp4" data-desc="High-paced video essay with multi-track pacing, custom 3D isometric timelines, AI visual comparisons, and sound design inspired by Hans Zimmer scores.">
+            <div class="project-media-wrapper">
+              <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&w=800&q=80" alt="AI Cinema Thumbnail" class="project-img">
+              <video class="project-preview-video" loop muted playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-city-with-flying-cars-and-tall-buildings-42518-large.mp4" type="video/mp4">
+              </video>
+              <div class="project-badge-top">
+                <span class="badge-tag">Video Essay</span>
+                <span class="badge-stat"><i class="fa-solid fa-eye"></i> 5.6M</span>
+              </div>
+              <div class="project-hover-overlay">
+                <span class="view-project-btn"><i class="fa-solid fa-play"></i> Watch Case Study</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta-pills">
+                <span>Story Pacing</span>
+                <span>B-Roll Sourcing</span>
+                <span>Kinetic Graphics</span>
+              </div>
+              <h3 class="project-title">How AI is Changing Cinema Forever</h3>
+              <p class="project-snippet">Masterfully paced video essay driving subscriber surge of +180k within 14 days of upload.</p>
+              <div class="project-stats-row">
+                <span class="stat-highlight"><i class="fa-solid fa-user-plus"></i> +180K Subs</span>
+                <span class="stat-client">FilmTheory Hub</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BEFORE/AFTER COLOR GRADING LAB -->
+    <section class="section grade-lab-section" id="grade-lab">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag"><i class="fa-solid fa-wand-magic"></i> COLOR SCIENCE &amp; POST-PRODUCTION</div>
+          <h2 class="section-title">THE COLOR GRADING LAB</h2>
+          <p class="section-desc">Drag the interactive slider below to inspect the transformation from flat S-Log3 raw camera footage to the final rich, cinematic master grade.</p>
+        </div>
+
+        <div class="slider-comparison-box" id="comparisonBox">
+          <div class="comparison-container">
+            <!-- Background: AFTER (Graded) -->
+            <div class="comparison-layer layer-after">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1600&q=80" alt="Cinematic Graded Footage" class="grade-image">
+              <div class="layer-pill after-pill">
+                <span class="dot-graded"></span>
+                <span>FINAL CINEMATIC GRADE (Rec.709 / Film Print LUT)</span>
+              </div>
+            </div>
+
+            <!-- Foreground: BEFORE (Raw / Flat S-Log) -->
+            <div class="comparison-layer layer-before" id="layerBefore">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1600&q=80" alt="Raw Flat Camera Log" class="grade-image raw-look">
+              <div class="layer-pill before-pill">
+                <span class="dot-raw"></span>
+                <span>RAW CAMERA LOG (Sony S-Log3 / 10-bit 4:2:2)</span>
+              </div>
+            </div>
+
+            <!-- Draggable Divider Handle -->
+            <div class="slider-handle" id="sliderHandle">
+              <div class="handle-line"></div>
+              <div class="handle-button">
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="handle-label">DRAG ME</div>
+              <div class="handle-line"></div>
+            </div>
+          </div>
+
+          <!-- Color Wheels & Pipeline Stats HUD -->
+          <div class="grade-hud-specs">
+            <div class="grade-spec-item">
+              <div class="grade-spec-title"><i class="fa-solid fa-circle-notch"></i> COLOR SPACE</div>
+              <div class="grade-spec-val">ACES 1.3 / DaVinci Wide Gamut</div>
+            </div>
+            <div class="grade-spec-item">
+              <div class="grade-spec-title"><i class="fa-solid fa-eye-dropper"></i> FILM EMULATION</div>
+              <div class="grade-spec-val">Kodak 2383 Print Film Curve</div>
+            </div>
+            <div class="grade-spec-item">
+              <div class="grade-spec-title"><i class="fa-solid fa-chart-simple"></i> DYNAMIC RANGE</div>
+              <div class="grade-spec-val">15+ Stops Preserved Roll-off</div>
+            </div>
+            <div class="grade-spec-item">
+              <div class="grade-spec-title"><i class="fa-solid fa-sliders"></i> GRAIN &amp; HALATION</div>
+              <div class="grade-spec-val">35mm Optical Grain Scans</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / WHAT VK DELIVERS -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag"><i class="fa-solid fa-scissors"></i> TAILORED SOLUTIONS</div>
+          <h2 class="section-title">POST-PRODUCTION SERVICES</h2>
+          <p class="section-desc">From viral high-retention YouTube formats to broadcast commercials and music videos, every cut is dialed to perfection.</p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <h3 class="service-name">High-Retention YouTube Editing</h3>
+            <p class="service-summary">
+              Retention-engineered pacing, magnetic intro hooks, sound effects, meme zooms, custom subtitles, and story arcs that prevent viewer drop-off.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Pattern-interrupt hook engineering</li>
+              <li><i class="fa-solid fa-check"></i> 100+ audio layers &amp; Foley integration</li>
+              <li><i class="fa-solid fa-check"></i> Custom 2D/3D kinetic title animations</li>
+              <li><i class="fa-solid fa-check"></i> Fast turnarounds (48-72 hrs)</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-tag-badge">For Creators &amp; Influencers</span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card featured">
+            <div class="featured-badge">MOST REQUESTED</div>
+            <div class="service-icon-box">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h3 class="service-name">Commercial &amp; Brand Storytelling</h3>
+            <p class="service-summary">
+              Sleek, polished commercial edits that elevate brand equity and drive high conversions across digital campaigns, TVCs, and investor decks.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> ACES/Rec.709 Hollywood color grade</li>
+              <li><i class="fa-solid fa-check"></i> Dynamic speed ramping &amp; match cuts</li>
+              <li><i class="fa-solid fa-check"></i> Clean audio mastering &amp; voice clarity</li>
+              <li><i class="fa-solid fa-check"></i> Deliverables for 16:9, 9:16 &amp; 1:1</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-tag-badge gold">For Brands &amp; Agencies</span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <h3 class="service-name">Short-Form Domination (Reels/TikTok)</h3>
+            <p class="service-summary">
+              Viral vertical edits tailored for algorithmic velocity. Built with eye-tracking subtitles, animated emojis, sound bites, and micro-cuts.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> 3-second hook optimization</li>
+              <li><i class="fa-solid fa-check"></i> Alex Hormozi / Ali Abdaal style subtitles</li>
+              <li><i class="fa-solid fa-check"></i> Trending audio pairing &amp; SFX</li>
+              <li><i class="fa-solid fa-check"></i> High-volume monthly batch packages</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-tag-badge">For Personal Brands</span>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3 class="service-name">Color Grading &amp; Visual FX</h3>
+            <p class="service-summary">
+              Professional DaVinci Resolve colorist work. From matching multi-camera setups to creating signature moods, film grain, and VFX compositing.
+            </p>
+            <ul class="service-features">
+              <li><i class="fa-solid fa-check"></i> Sony/Canon/RED/ARRI RAW workflows</li>
+              <li><i class="fa-solid fa-check"></i> Custom look creation &amp; 3D LUTs</li>
+              <li><i class="fa-solid fa-check"></i> Object wire removal &amp; beauty retouch</li>
+              <li><i class="fa-solid fa-check"></i> Mocha Pro planar tracking</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-tag-badge">Color Science</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ARSENAL / TECH STACK & PIPELINE -->
+    <section class="section workflow-section" id="workflow">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag"><i class="fa-solid fa-microchip"></i> EDITING ARSENAL</div>
+          <h2 class="section-title">THE TOOLS &amp; WORKFLOW PIPELINE</h2>
+          <p class="section-desc">Industry-grade hardware and software ensuring lossless quality, rapid iteration, and flawless delivery.</p>
+        </div>
+
+        <!-- Software Badges Marquee -->
+        <div class="software-grid">
+          <div class="soft-card">
+            <div class="soft-badge-icon pr">Pr</div>
+            <div class="soft-name">Adobe Premiere Pro</div>
+            <div class="soft-role">Core Assembly &amp; Pacing</div>
+          </div>
+          <div class="soft-card">
+            <div class="soft-badge-icon ae">Ae</div>
+            <div class="soft-name">Adobe After Effects</div>
+            <div class="soft-role">Motion Graphics &amp; VFX</div>
+          </div>
+          <div class="soft-card">
+            <div class="soft-badge-icon dv">Dv</div>
+            <div class="soft-name">DaVinci Resolve Studio</div>
+            <div class="soft-role">Color Grading &amp; Mastering</div>
+          </div>
+          <div class="soft-card">
+            <div class="soft-badge-icon bl">Bl</div>
+            <div class="soft-name">Blender 3D</div>
+            <div class="soft-role">3D Motion &amp; Compositing</div>
+          </div>
+          <div class="soft-card">
+            <div class="soft-badge-icon iz">Rx</div>
+            <div class="soft-name">iZotope RX &amp; Audition</div>
+            <div class="soft-role">Audio Restoration &amp; Foley</div>
+          </div>
+          <div class="soft-card">
+            <div class="soft-badge-icon mc">Mo</div>
+            <div class="soft-name">Boris FX Mocha</div>
+            <div class="soft-role">Planar Tracking &amp; Rotoscopy</div>
+          </div>
+        </div>
+
+        <!-- 5-Step Pipeline Timeline -->
+        <div class="pipeline-timeline">
+          <div class="timeline-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <h4>Ingest &amp; Story Blueprint</h4>
+              <p>Footage sync, audio logging, script breakdown, and selecting golden sound bites for a bulletproof narrative structure.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <h4>Rough Assembly &amp; Pacing</h4>
+              <p>Establishing the rhythm, aggressive trimming of dead air, and building emotional rises and falls.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <h4>Motion Graphics &amp; B-Roll</h4>
+              <p>Kinetic typography, animated charts, screen mockups, and contextual footage overlays to retain viewer focus.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <h4>Foley &amp; Sound Engineering</h4>
+              <p>Adding layers of risers, whooshes, braams, clicks, ambient room tone, and mastering audio for crystal voice clarity.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-num">05</div>
+            <div class="step-content">
+              <h4>Color Science &amp; Master Export</h4>
+              <p>ACES color space transform, film print emulation, grain texture, and multi-format ProRes/H.265 master renders.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS & TRUST MARQUEE -->
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag"><i class="fa-solid fa-star"></i> CLIENT FEEDBACK</div>
+          <h2 class="section-title">PRAISE FROM CREATORS &amp; DIRECTORS</h2>
+          <p class="section-desc">Hear what top YouTubers, agency heads, and marketing leaders say about working with VK Edits.</p>
+        </div>
+
+        <!-- Testimonials Cards Grid -->
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card">
+            <div class="quote-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote-text">
+              &ldquo;VK completely revolutionized our channel's retention. Our average view duration went from 4:20 to over 11:30 minutes on 20-minute docs. His sound design and graphic timing are unmatched.&rdquo;
+            </p>
+            <div class="client-profile">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Client Avatar" class="client-avatar">
+              <div class="client-meta">
+                <div class="client-name">Marcus Vance</div>
+                <div class="client-role">Founder, 1.4M YouTube Creator</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote-text">
+              &ldquo;Working with VK Edits felt like having a full post-production house in one person. The DaVinci color grading on our luxury automobile campaign was indistinguishable from cinema releases.&rdquo;
+            </p>
+            <div class="client-profile">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Client Avatar" class="client-avatar">
+              <div class="client-meta">
+                <div class="client-name">David Sterling</div>
+                <div class="client-role">Creative Director, Aero Media Group</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="quote-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="quote-text">
+              &ldquo;Our viral short-form pipeline exploded after VK took over editing. In 60 days, we garnered 32M+ views on TikTok and signed multiple six-figure brand partnerships. Fast, communicative, and lethal.&rdquo;
+            </p>
+            <div class="client-profile">
+              <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Client Avatar" class="client-avatar">
+              <div class="client-meta">
+                <div class="client-name">Elena Rostova</div>
+                <div class="client-role">CEO, GrowthScale Agency</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Creator Network Logos -->
+        <div class="clients-banner">
+          <span class="banner-title">TRUSTED BY CONTENT TEAMS &amp; MEDIA BRANDS GLOBALLY</span>
+          <div class="clients-ticker">
+            <div class="ticker-track">
+              <span>NEXUS MEDIA</span>
+              <span>AERO MOTORS</span>
+              <span>LUMINA MUSIC</span>
+              <span>DOCUTECH STUDIOS</span>
+              <span>FILMTHEORY HUB</span>
+              <span>APEX LUXURY</span>
+              <span>VORTEX PRODUCTIONS</span>
+              <span>NEXUS MEDIA</span>
+              <span>AERO MOTORS</span>
+              <span>LUMINA MUSIC</span>
+              <span>DOCUTECH STUDIOS</span>
+              <span>FILMTHEORY HUB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / COMMISSION SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          
+          <!-- Contact Left: Bio & Coordinates -->
+          <div class="contact-info">
+            <div class="section-tag"><i class="fa-solid fa-handshake"></i> BOOK A COMMISSION</div>
+            <h2 class="section-title">LET'S MAKE SOMETHING <span class="text-gradient">ICONIC.</span></h2>
+            <p class="contact-pitch">
+              Whether you need a high-retention YouTube overhaul, a high-fashion commercial cut, or ongoing monthly editing for your brand, my timeline is ready.
+            </p>
+
+            <div class="availability-card">
+              <div class="avail-indicator">
+                <span class="pulse-dot"></span>
+                <strong>Currently Booking: Q1 &amp; Q2 Projects</strong>
+              </div>
+              <p>Turnaround time: 48 to 72 hours for standard long-form cuts.</p>
+              <div class="current-time-hud">
+                <i class="fa-solid fa-clock"></i>
+                <span>VK Timezone (IST): <strong id="liveLocalTime">--:--:--</strong> (UTC+5:30)</span>
+              </div>
+            </div>
+
+            <div class="contact-methods">
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <div class="method-label">Direct Email</div>
+                  <a href="mailto:contact@vkedits.com" class="method-val">contact@vkedits.com</a>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-brands fa-discord"></i></div>
+                <div>
+                  <div class="method-label">Discord Studio</div>
+                  <span class="method-val">@vkedits_official</span>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-icon"><i class="fa-brands fa-telegram"></i></div>
+                <div>
+                  <div class="method-label">Direct Telegram</div>
+                  <a href="https://t.me" target="_blank" rel="noopener" class="method-val">t.me/vkedits</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links-row">
+              <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-btn" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+            </div>
+          </div>
+
+          <!-- Contact Right: Interactive Inquiry Form -->
+          <div class="contact-form-wrapper">
+            <form class="contact-form" id="contactForm">
+              <h3 class="form-title">Project Inquiry Form</h3>
+              <p class="form-subtitle">Fill in the details below and get a quote within 24 hours.</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="userName">Your Name / Company <span class="req">*</span></label>
+                  <input type="text" id="userName" name="name" placeholder="e.g. Alex Vance" required>
+                </div>
+                <div class="form-group">
+                  <label for="userEmail">Email Address <span class="req">*</span></label>
+                  <input type="email" id="userEmail" name="email" placeholder="alex@creators.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Project Type <span class="req">*</span></label>
+                <div class="project-type-pills">
+                  <label class="radio-pill">
+                    <input type="radio" name="projectType" value="YouTube Retention Cut" checked>
+                    <span>YouTube Longform</span>
+                  </label>
+                  <label class="radio-pill">
+                    <input type="radio" name="projectType" value="Commercial / Ad">
+                    <span>Commercial / Ad</span>
+                  </label>
+                  <label class="radio-pill">
+                    <input type="radio" name="projectType" value="Shorts / Reels Batch">
+                    <span>Short-Form / Reels</span>
+                  </label>
+                  <label class="radio-pill">
+                    <input type="radio" name="projectType" value="Color Grading & VFX">
+                    <span>Color Lab &amp; VFX</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="budget">Estimated Budget</label>
+                  <select id="budget" name="budget">
+                    <option value="500-1000">$500 – $1,000 / video</option>
+                    <option value="1000-2500" selected>$1,000 – $2,500 / project</option>
+                    <option value="2500-5000">$2,500 – $5,000 / commercial</option>
+                    <option value="monthly-retainer">Monthly Retainer ($4,000+)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="timeline">Deadline / Timeline</label>
+                  <select id="timeline" name="timeline">
+                    <option value="urgent">Rush (Within 48 hours)</option>
+                    <option value="1week" selected>1 – 2 Weeks</option>
+                    <option value="monthly">Ongoing Monthly Partnership</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="footageLink">Raw Footage / Reference Link (Optional)</label>
+                <input type="url" id="footageLink" name="footageLink" placeholder="Google Drive, Dropbox, Frame.io or YouTube link">
+              </div>
+
+              <div class="form-group">
+                <label for="message">Project Vision &amp; Notes <span class="req">*</span></label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me about your video goals, target retention, pacing style, and any reference channels you admire..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+                <span>Dispatch Commission Request</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div class="form-status" id="formStatus"></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <a href="#hero" class="footer-brand">
+          <span class="brand-monogram">VK</span>
+          <span class="brand-text">EDITS<span class="brand-dot">.</span></span>
+        </a>
+        <p class="footer-tagline">Crafting high-retention cinematic narratives for creators &amp; world-class brands.</p>
+      </div>
+
+      <div class="footer-middle">
+        <div class="footer-col">
+          <span class="col-title">Navigation</span>
+          <a href="#hero">Studio</a>
+          <a href="#showreel">Showreel</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#grade-lab">Color Lab</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-title">Services</span>
+          <a href="#services">YouTube Retention</a>
+          <a href="#services">Commercial Cuts</a>
+          <a href="#services">Shorts / Reels</a>
+          <a href="#services">Color Grading</a>
+        </div>
+        <div class="footer-col">
+          <span class="col-title">Direct</span>
+          <a href="mailto:contact@vkedits.com">contact@vkedits.com</a>
+          <a href="#contact">Book Schedule</a>
+          <a href="#workflow">Tech Pipeline</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-copyright">
+          &copy; <span id="currentYear">2026</span> VK EDITS. All rights reserved. Designed for cinema &amp; performance.
+        </div>
+        <div class="footer-tech-note">
+          <span>MASTERED IN 4K UHD</span> &bull; <span>60 FPS</span> &bull; <span>24-BIT 48KHZ AUDIO</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT CASE STUDY MODAL -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="modal-body">
+        <div class="modal-video-wrap">
+          <video id="modalVideo" class="modal-video" controls playsinline>
+            <source src="" type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="modal-details">
+          <div class="modal-meta-top">
+            <span class="modal-badge" id="modalClient">Client</span>
+            <span class="modal-stat" id="modalViews"><i class="fa-solid fa-eye"></i> Views</span>
+            <span class="modal-stat" id="modalRetention"><i class="fa-solid fa-chart-line"></i> Retention</span>
+          </div>
+
+          <h3 class="modal-title" id="modalTitle">Project Title</h3>
+          
+          <div class="modal-tools" id="modalSoftware">
+            <!-- Software tags inserted via JS -->
+          </div>
+
+          <p class="modal-desc" id="modalDesc">
+            Project breakdown and editing strategy...
+          </p>
+
+          <div class="modal-actions">
+            <a href="#contact" class="btn btn-primary modal-contact-btn">
+              <span>Commission Similar Video</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>
